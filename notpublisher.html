@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<body>
+  <div id="root">
+    <div></div>
+  </div>
+
+  <script>
+
+// 1. 선언을 해준다. 왜 root는 get~이고
+// 왜 main은 create~냐? 
+// root는 body에 있으니까 불러온다..
+// main은 없으니까 여기서 생성하겠다.(create)
+
+let root= document.getElementById("root");
+let main= document.createElement("div");
+let section=document.createElement("div");
+let sectionL = document.createElement("div");
+let  sectionul= document.createElement("div");
+let  sectionli = document.createElement("div");
+let sectionR = document.createElement("div");
+let sectionRul = document.createElement("div");
+let movebtn= document.createElement("div");
+
+
+
+// 길쭉한 root부분을 정리.
+root.style.overflowx="hidden";
+root.style.margin="0px";
+root.style.padding="0px";
+root.style.boxSizing="boder-box";
+root.style.width="100vw";
+root.style.height="100vh";
+root.style.background="cadetblue";
+root.style.display="flex";
+root.style.justifyContent="center"
+root.style.alignItems="center";
+root.innerHTML="여기는 루트다"
+
+
+// 메인부분을 정리.
+main.style.width="500px";
+main.style.height="500px";
+main.style.border="1px solid black";
+main.style.display="flex";
+main.style.justifyContent="center";
+main.style.alignItems="center";
+main.style.backgroundcolor="red";
+main.innerHTML="여기는 메인이다"
+
+
+// 섹션 왼쪽부분
+sectionL.style.display="flex";
+sectionL.style.justifyContent="center";
+sectionL.style.alignContent="center";
+sectionL.style.width="200px";
+sectionL.style.height="450px";
+sectionL.style.border="1px solid black"
+sectionL.innerHTML="여기는 왼쪽이다"
+
+// 섹션 오른쪽 부분
+sectionR.style.display="flex";
+sectionR.style.justifyContent="center";
+sectionR.style.alignContent="center";
+sectionR.style.width="200px";
+sectionR.style.height="450px";
+sectionR.style.border="1px solid blue"
+sectionR.innerHTML="섹션 오른쪽 부분"
+
+
+// 섹션 왼쪽 UL부분
+
+sectionul.style.width="100%";
+sectionul.style.height="50px";
+sectionul.style.backgroundColor="#fff";
+sectionul.style.border="1px solid blue";
+sectionul.innerHTML="섹션 왼쪽 ul부분"
+
+// 섹션 왼쪽 li 부분
+sectionli.style.width="100%";
+sectionli.style.height="250px";
+sectionli.style.backgroundColor="#fff";
+sectionli.style.border="1px";
+sectionli.innerHTML="여기는 왼쪽 섹션 li부분"
+
+
+// 섹션 오른쪽 UL
+sectionRul.style.width="100%";
+sectionRul.style.height="50px";
+sectionRul.style.backgroundColor="#fff";
+sectionRul.style.border="1px";
+sectionRul.innerHTML="여기는 오른쪽 UL"
+
+// 무브버튼 동그란공 
+movebtn.style.width="200px";
+movebtn.style.height="200px";
+movebtn.style.backgroundColor="#fff";
+movebtn.style.borderRadius="50%";
+movebtn.style.position="fixed";
+movebtn.style.bottom="10px";
+movebtn.style.left="50vw";
+movebtn.style.transform="translate(-50%)"
+movebtn.style.display="flex";
+movebtn.style.justifyContent="center";
+movebtn.style.alignItems="center";
+movebtn.innerHTML="MOVE!";
+
+
+
+
+
+
+//  ??-- 자식을 설정하는데, 일괄적으로 해야하는가
+//  아니면 개별지정을 해야하는가??
+// 자바스크립트에서 자식을 주기 위해서는
+// body.children[0] 해주면 바디의 첫번째자식
+// 즉 root의 자식을 메인으로 두겠다 라는 의미가 된다.
+
+
+
+// for문을 반복해서 ul태그를 생성하였다.
+// i<=5가 중요한 부분이다..
+// 내가 지금 원하는 작업은, li태그를 5개 만드는것.
+// 내가 설정한 sectionli를 만든다는 선언을 for문에 하고
+// sectionul의 자식을 5개가 만들어진다.
+// 여기서 궁금했던것이, 6개가 만들어졌다.
+// 왜 6개가 만들어 졌는가? 
+// 밖에있는 sectionul.appendChild(sectionli);은
+// for문안에 없으니 한개만 만들어지고
+// for문안에 있는 sectionul.appendChild(sectionli);는
+// for문의 조건에 맞춰서 5개가 생성이 된다.
+
+for(let i = 0; i <=5; i++) {
+      let sectionli = document.createElement("div");
+      sectionli.style.color = "#fff";
+      sectionul.appendChild(sectionli);
+    }
+    sectionul.appendChild(sectionli);
+
+
+
+// 자식 설정하는 공간
+root.appendChild(main);
+root.appendChild(movebtn);
+root.children[0].appendChild(sectionL);
+root.children[0].appendChild(sectionR);
+sectionL.appendChild(sectionul);
+sectionR.appendChild(sectionRul);
+
+  </script>
+</body>
+</html>
+
+
+<!-- 내가 미숙한 부분 -->
+<!-- 1. 함수부분 간단한 함수는 정의가 가능하지만
+길이가 길어지고, 자식과 부모가 얽힌 형태에서는 어디서부터 해야할지 감조차 못잡는 상황이 연속된다. -->
+<!-- 2.구도부분. 부모와 자식간의 관계를 생각하다 2시간이 지나갔다. 이것은, 기초가 미숙하다는 뜻이다.
+지난 결과들을 한번 보고 만것의 후폭풍이 온것-->
+<!-- 3.자바스크립트도 연관되어서, 한번보고 훅 지나간것이 종합적으로 오고있다. 용어정리부터 다시 해야한다. -->

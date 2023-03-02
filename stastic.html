@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+*{margin:0;
+  padding: 0; 
+ box-sizing:
+border-box;}
+
+/* 브라우저의 팝업창 해당 */
+#pop-up{
+  width: 300px;
+  height: 300px;
+  background-color: aquamarine;
+  /* fixed는 무조건 브라우저 */
+  position:fixed;
+  top: 100px;
+  left: 100px;
+}
+/* 팝업버튼 크기선택 */
+#pop-up>button{
+  width: 100px;
+  height: 100px;
+}
+
+#root{
+  width: 100vw;
+  height: 300vw;
+  background-color: aliceblue;
+}
+
+#root>section{
+  width: 100vw;
+  height: 100vh;
+  border:1px solid black;
+}
+
+#root>section:nth-child(1){background-color: chartreuse;}
+#root>section:nth-child(2){background-color: rgb(38, 0, 255);}
+#root>section:nth-child(3){background-color: rgb(255, 0, 191);}
+
+</style>
+
+<body>
+
+  <aside id="pop-up">
+<button>버튼</button>
+<p>공욱재는 미남이다.</p>
+  </aside>
+
+
+<div id="root">
+<section>초록색</section>
+<section>파란색</section>
+<section>분홍색</section>
+</div>
+
+
+
+
+<script>
+
+
+// 이름만 closebutton으로 한것, 의미없음
+const popup=window.document.getElementBy('pop-up');
+const closebutton =popup.children[0];
+const gokukjae =popup.children[1];
+const root=window.document.getElementById('root');
+const green=root.children[0];
+
+console.dir(green);
+// button 태그를 확인해주고싶다.
+
+// 클릭이벤트 쓸거야, 콜함수로 물어본다는 것
+  // closebutton.style.display='none'; 클릭하면 버튼이 사라진다.
+  // 그렇다면, 아쿠아마린도 없앨수 있을까?
+  // console.dir을 통해서 부모요소(parents)를 찾는다.
+  // 부모를 none하면, 모두다 사라진다!!
+
+closebutton.addEventListener('click',function() {
+  closebutton.parentElement.style.display='none';
+});
+
+// popup의 자식요소를 찾아서, none 해주면 공욱재 미남이 사라진다.
+
+
+closebutton.addEventListener('click',function() {
+  gokukjae.style.display='none';
+});
+
+
+</script>
+
+</body>
+</html>
