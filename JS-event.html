@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+    <ul= id="menu">
+      <li>items-1</li>
+      <li>items-2</li>
+      <li>items-3</li>
+      <li>items-4</li>
+      <li>items-5</li>
+      </ul>
+  </div>
+  <script>
+    const firstli = document.querySelector('#menu>li:nth-child(1)');
+    const menu = document.getElementById('menu');
+    console.log(firstli);
+    console.dir(menu.children);
+
+    // menu.children[0].style.color="red";
+    // menu.children[1].style.color="red";
+    // menu.children[2].style.color="red";
+    // menu.children[3].style.color="red";
+    // menu.children[4].style.color="red";
+
+    let switchValue = true;
+    menu.addEventListener('click', function() {
+      if(switchValue === true) {
+        for(let i = 0; i< menu.children.length; i++) {
+          menu.children[i].style.color = "pink";
+          menu.style.backgroundColor="black";
+        }
+        switchValue = false;
+      } else {
+        for(let i = 0; i< menu.children.length; i++) {
+          menu.children[i].style.color="red";
+          menu.style.backgroundColor = "cadetblue";
+        }
+        switchValue = true;
+      }
+    });
+
+
+
+
+    // let ddockdack = true;
+
+    // for (let i = 0; i < menu.children.length; i++) {
+    //   menu.children[i].style.color = "pink";
+    //   menu.children[i] = "pink";
+
+    //   if (ddockdack === true) {
+    //     menu.children[i].addEventListener('click', function () {
+    //       menu.children[i].style.color = "yellow";
+    //     }
+    //     );
+    //   } else {
+    //     menu.children[i].addEventListener('click', function () {
+    //       menu.children[i].style.color = "blue";
+    //     });
+    //   }
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // menu.children[1].addEventListener('click',function() {
+    //   menu.children[1].style.color="green";
+    // });
+
+    // menu.children[2].addEventListener('click',function() {
+    //   menu.children[2].style.color="green";
+    // });
+
+    // menu.children[3].addEventListener('click',function() {
+    //   menu.children[3].style.color="green";
+    // });
+
+    // menu.children[4].addEventListener('click',function() {
+    //   menu.children[4].style.color="green";
+    // });
+
+
+
+
+
+
+
+
+
+
+
+    for (let i = menu.children.length; i > 0; i--) { }
+
+
+
+
+  </script>
+</body>
+
+</html>
